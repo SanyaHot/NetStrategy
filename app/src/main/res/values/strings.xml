@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NetStrategy</string>
+    <string name="main">MainActivity</string>
+    <string name="message">跳转到SecondActivity</string>
+    <string name="register">注册事件</string>
+    <string name="second">SecondActivity</string>
+    <string name="send">发送事件</string>
 </resources>

@@ -7,21 +7,42 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.trance.netstrategy.EventBus.MessageEvent;
 import com.trance.netstrategy.NetWork.OkHttpTest;
 import com.trance.netstrategy.NetWork.RetrofitTest;
 
-public class MainActivity extends AppCompatActivity{
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
-    TextView result;
+public class MainActivity extends AppCompatActivity {
+
+    TextView tv_message;
+    Button bt_message;
+    Button bt_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        result = findViewById(R.id.result);
+        tv_message = findViewById(R.id.result);
+        bt_message = findViewById(R.id.bt_message);
+        bt_register = findViewById(R.id.bt_subscription);
+
+        bt_message.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+        });
+
+        bt_register.setOnClickListener(v -> {
+            //如果发送的是黏性事件，可以等事件发送后再注册
+            EventBus.getDefault().register(MainActivity.this);
+        });
+
+
 //        startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
 
 //        OkHttpTest.jsonNet();
@@ -37,25 +58,21 @@ public class MainActivity extends AppCompatActivity{
 //            OkHttpTest.postMultipart("girl", "mp4");
 //        }
 
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-//                != PackageManager.PERMISSION_GRANTED) {
-//            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-//                    Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CALL_PHONE,
-//                    Manifest.permission.READ_CONTACTS}, 5);
-//        } else {
-//            OkHttpTest.download();
-//        }
+    }
 
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onHandleEvent(MessageEvent event) {
+//        tv_message.setText(event.getMessage());
+//    }
 
-//        TextView press = findViewById(R.id.press);
-//        press.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ItemListDialogFragment.newInstance(30).show(getSupportFragmentManager(), "dialog");
-//            }
-//        });
-//        LinearLayout ll_scl_price = findViewById(R.id.ll_scl_price);
-//        ll_scl_price.setVisibility(View.VISIBLE);
+    /**
+     * 处理黏性事件
+     *
+     * @param event
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onHandleStickyEvent(MessageEvent event) {
+        tv_message.setText(event.getMessage());
     }
 
     @Override
@@ -67,11 +84,6 @@ public class MainActivity extends AppCompatActivity{
 //            }
 //        }
 
-//        if (requestCode == 3) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                OkHttpTest.download();
-//            }
-//        }
 
         if (requestCode == 5) {
             if (grantResults.length > 0) {
@@ -84,5 +96,11 @@ public class MainActivity extends AppCompatActivity{
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
