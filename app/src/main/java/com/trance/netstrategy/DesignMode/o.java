@@ -1,7 +1,7 @@
 package com.trance.netstrategy.DesignMode;
 
 public class o {
-    public static void p(String msg) {
-        System.out.println(msg);
+    public static void p(Object o) {
+        System.out.println(o);
     }
 }
