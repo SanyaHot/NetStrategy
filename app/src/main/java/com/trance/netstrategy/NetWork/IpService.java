@@ -14,6 +14,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import rx.Observable;
 
 public interface IpService {
     @GET("/FuckWeb/JsonServlet?ip=15.6.108.72&code=200&city=Shanghai")
@@ -49,5 +50,9 @@ public interface IpService {
             @Part("description") RequestBody description
     );
 
+    @GET("/FuckWeb/JsonTest")
+    Observable<IpModel> getIpMsg(
+            @Query("ip") String ip
+    );
 
 }
