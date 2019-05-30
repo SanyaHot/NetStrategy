@@ -1,10 +1,9 @@
 package com.trance.netstrategy.DataBinding;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
-import android.support.v7.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.trance.netstrategy.R;
 import com.trance.netstrategy.bean.ObFSwordsMan;
@@ -12,7 +11,6 @@ import com.trance.netstrategy.bean.ObSwordsMan;
 import com.trance.netstrategy.bean.SwordsMan;
 import com.trance.netstrategy.databinding.ActivityDataBindingBinding;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

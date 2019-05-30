@@ -1,8 +1,7 @@
 package com.trance.netstrategy.RxJava;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.trance.netstrategy.EventBus.MessageEvent;

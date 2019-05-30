@@ -1,11 +1,10 @@
 package com.trance.netstrategy;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -14,10 +13,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.trance.netstrategy.Dagger2.App;
-import com.trance.netstrategy.Dagger2.DaggerActivityComponent;
 import com.trance.netstrategy.EventBus.MessageEvent;
 import com.trance.netstrategy.NetWork.OkHttpTest;
-import com.trance.netstrategy.NetWork.RetrofitTest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

@@ -1,7 +1,7 @@
 package com.trance.netstrategy.bean;
 
-import android.databinding.Observable;
-import android.databinding.ObservableField;
+import androidx.databinding.Observable;
+import androidx.databinding.ObservableField;
 
 public class ObFSwordsMan {
     public ObservableField<String> name = new ObservableField<>();

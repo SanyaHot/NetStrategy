@@ -21,7 +21,7 @@
         
         <import type="java.util.ArrayList" />
 
-        <import type="android.databinding.ObservableArrayList" />
+        <import type="androidx.databinding.ObservableArrayList" />
 
         <import type="java.util.Map" />
         

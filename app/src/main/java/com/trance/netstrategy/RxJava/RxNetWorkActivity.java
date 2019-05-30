@@ -1,6 +1,6 @@
 package com.trance.netstrategy.RxJava;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.trance.netstrategy.R;

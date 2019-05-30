@@ -1,6 +1,6 @@
 package com.trance.netstrategy;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -9,8 +9,6 @@ import android.widget.Button;
 import com.google.gson.Gson;
 import com.trance.netstrategy.Dagger2.App;
 import com.trance.netstrategy.Dagger2.Car;
-import com.trance.netstrategy.Dagger2.DaggerActivityComponent;
-import com.trance.netstrategy.Dagger2.Engine;
 import com.trance.netstrategy.Dagger2.Man;
 import com.trance.netstrategy.Dagger2.SwordsMan;
 import com.trance.netstrategy.Dagger2.Watch;
