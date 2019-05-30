@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--自定义Binding类名-->
+    <!--生成的文件与单data是同级目录-->
+    <!--<data class="World">-->
+    <!--自定义目录-->
+    <!--<data class="com.trance.netstrategy.Hello">-->
+    <data>
+
+        <!--<import type="com.trance.netstrategy.Dagger2.SwordsMan"-->
+        <!--alias="Man"/>-->
+
+        <!--<variable-->
+        <!--name="man"-->
+        <!--type="Man" />-->
+
+        <import type="com.trance.netstrategy.bean.SwordsMan" />
+
+        <import type="com.trance.netstrategy.util.Utils" />
+        
+        <import type="java.util.ArrayList" />
+
+        <import type="android.databinding.ObservableArrayList" />
+
+        <import type="java.util.Map" />
+        
+        <import type="com.trance.netstrategy.bean.ObSwordsMan" />
+
+        <import type="com.trance.netstrategy.bean.ObFSwordsMan" />
+
+        <!--<variable-->
+        <!--name="swordsman"-->
+        <!--type="com.trance.netstrategy.bean.SwordsMan" />-->
+
+        <variable
+            name="OnClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="swordsman"
+            type="SwordsMan" />
+
+        <!--变量定义-->
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="age"
+            type="int" />
+
+        <variable
+            name="man"
+            type="boolean" />
+
+        <!--&lt;!&ndash;泛型&ndash;&gt;-->
+        <!--<variable-->
+            <!--name="list"-->
+            <!--type="ArrayList&lt;String&gt;" />-->
+
+        <!--泛型-->
+        <variable
+            name="list"
+            type="ObservableArrayList&lt;String&gt;" />
+
+        <variable
+            name="map"
+            type="Map&lt;String,String&gt;" />
+
+        <variable
+            name="arrays"
+            type="String[]" />
+        
+        <variable
+            name="time"
+            type="java.util.Date" />
+        
+        <variable
+            name="oman"
+            type="ObSwordsMan" />
+
+        <variable
+            name="ofMan"
+            type="ObFSwordsMan" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{swordsman.name}" />
+
+        <!--静态方法-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{Utils.getName(swordsman)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{swordsman.level}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{String.valueOf(age)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{String.valueOf(man)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{list.get(1)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{map.get(`age`)}" />
+
+        <!--运算符-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{`Age:`+map.get(`age`)}" />
+
+        <!--三目运算符-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{Integer.parseInt(map.get(`age`))>=18?`成年人`:`未成年`}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@{arrays[1]}" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@{time}"
+            android:layout_height="40dp" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@{oman.name}"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@{ofMan.name}"
+            android:layout_height="40dp" />
+
+        <!--@=实现双向绑定,UI变化的同时model也会变化,非常神奇-->
+        <EditText
+            android:layout_width="match_parent"
+            android:text="@={oman.name}"
+            android:layout_height="40dp" />
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{OnClickListener}"
+            android:text="@string/notify" />
+
+    </LinearLayout>
+
+</layout>

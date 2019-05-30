@@ -7,10 +7,14 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.trance.netstrategy.Dagger2.App;
+import com.trance.netstrategy.Dagger2.DaggerActivityComponent;
 import com.trance.netstrategy.EventBus.MessageEvent;
 import com.trance.netstrategy.NetWork.OkHttpTest;
 import com.trance.netstrategy.NetWork.RetrofitTest;
@@ -19,11 +23,21 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+    
     TextView tv_message;
     Button bt_message;
     Button bt_register;
+
+    @Inject
+    Gson gson;
+
+    @Inject
+    Gson gson1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             EventBus.getDefault().register(MainActivity.this);
         });
 
+        App.get(this).getActivityComponent().inject(this);
+
+        Log.d(TAG, "gson_hashcode = "+gson.hashCode()+"\tgson1_hashcode = "+gson1.hashCode());
 
 //        startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
 
