@@ -20,7 +20,7 @@ public abstract class AbstractSwordman {
     }
 
     //空实现方法
-    protected void hook(){};
+    protected void hook(){}
     protected abstract void neigong();
     protected abstract void weapons();
     protected abstract void moves();

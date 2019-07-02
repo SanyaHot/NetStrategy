@@ -10,8 +10,8 @@
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/root"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -34,6 +34,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@{gun.desc}" />
+
+        <TextView
+            android:id="@+id/tvList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{gun.list.get(gun.list.size()-1)}" />
+
+        <!--android:text="@{gun.list.get(1)}"-->
 
         <Button
             android:id="@+id/update"
